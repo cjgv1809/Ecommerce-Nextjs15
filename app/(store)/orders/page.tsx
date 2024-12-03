@@ -52,7 +52,7 @@ async function OrdersPage() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
+                <div className="p-4 sm:p-6 flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center">
                   <div className="flex items-center">
                     <span className="text-sm mr-2">Status:</span>
                     <span
@@ -87,7 +87,7 @@ async function OrdersPage() {
                     <p className="text-sm text-gray-600">
                       Original Subtotal:{" "}
                       {formatCurrency(
-                        (order.totalPrice ?? 0) + order.amountDiscount,
+                        (order.totalPrice ?? 0) + (order.amountDiscount ?? 0),
                         order.currency
                       )}
                     </p>

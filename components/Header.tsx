@@ -101,7 +101,13 @@ function Header() {
 
                 <div className="hidden sm:block text-xs">
                   <p className="text-gray-400">
-                    Hi, <span className="font-bold">{user.fullName}</span>
+                    Hi,{" "}
+                    {user.fullName ? (
+                      <span className="font-bold">{user.fullName}</span>
+                    ) : (
+                      <span>there</span>
+                    )}
+                    !
                   </p>
                 </div>
               </div>
