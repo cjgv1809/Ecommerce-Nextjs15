@@ -29,7 +29,7 @@ async function OrdersPage() {
             {orders.map((order) => (
               <div
                 key={order._id}
-                className="bg-white border border-gray-200 shadow-sm overflow-hidden"
+                className="bg-white border border-gray-200 shadow-sm overflow-hidden rounded-lg"
               >
                 <div className="p-4 sm:p-6 border-b border-gray-200">
                   <div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:items-center mb-4">
@@ -67,7 +67,9 @@ async function OrdersPage() {
                         "bg-red-100 text-red-800": order.status === "cancelled",
                       })}
                     >
-                      {order.status}
+                      {order.status
+                        ? order.status[0].toUpperCase() + order.status.slice(1)
+                        : "N/A"}
                     </span>
                   </div>
                   <div className="sm:text-right">
@@ -79,7 +81,7 @@ async function OrdersPage() {
                 </div>
 
                 {order.amountDiscount && (
-                  <div className="mt-4 p-3 sm:p-4 bg-red-50 rounded-lg">
+                  <div className="p-3 sm:p-4 bg-red-50">
                     <p className="text-red-600 font-medium mb-1 text-sm sm:text-base">
                       Discount Applied:{" "}
                       {formatCurrency(order.amountDiscount, order.currency)}
